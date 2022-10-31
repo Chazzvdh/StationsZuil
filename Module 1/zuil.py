@@ -2,11 +2,11 @@ import datetime
 import random
 
 file1 = open("zuil_berichten.txt", "a+")
-stations = open('stations.txt').read().splitlines()
+stations = ["Amsterdam", "Breda", "Haarlem"]
 station = random.choice(stations)
 
 naam = input("Wat is uw naam?: ")
-current_time = datetime.datetime.now()
+current_time = datetime.datetime.now().strftime('%y-%m-%d %H:%M')
 
 if naam == "":
     naam = "Anoniem"
@@ -18,12 +18,18 @@ while True:
         print("Uw bericht was {} tekens lang.\nprobeer het opnieuw:".format(len(bericht)))
         continue
     else:
-        file1.write("Naam gebruiker: {}\n"
-                    "Datum en tijd {}\n"
-                    "Bericht: {}\n"
-                    "Station: {}\n\n".format(naam, current_time, bericht, station))
+        file1.write("Naam gebruiker: {};"
+                    "Datum en tijd {};"
+                    "Bericht: {};"
+                    "Station: {};\n".format(naam, current_time, bericht, station))
         file1.close()
         break
+
+file1 = open("zuil_berichten.txt", "r")
+data = file1.read()
+data = data.split(";")
+print(data)
+file1.close()
 
 
 

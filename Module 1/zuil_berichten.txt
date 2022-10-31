@@ -1,25 +1,2 @@
-Naam gebruiker: Yeet
-Datum en tijd 2022-10-17 14:17:05.113746
-Bericht: kjnkjebfkwebfkbwekfsdkjd fbhjwebfkbwef
-Station: Apeldoorn
-
-Naam gebruiker: Eren
-Datum en tijd 2022-10-17 14:18:45.673121
-Bericht: kawndkjwnkdnawkjfbewefjkewb fbwef
-Station: Heerlen
-
-Naam gebruiker: Anoniem
-Datum en tijd 2022-10-17 14:19:34.349006
-Bericht: nawkjndkjwanadknawkdnkwajdkd
-Station: Leiden
-
-Naam gebruiker: Anoniem
-Datum en tijd 2022-10-17 14:31:20.120416
-Bericht: jkajwdkjnwakjdnakwjd
-Station: Zwolle
-
-Naam gebruiker: Chazz
-Datum en tijd 2022-10-17 15:57:29.388810
-Bericht: kjjnakjsndkjansjkdjkassndjk
-Station: Apeldoorn
-
+Naam gebruiker: Chazz van den Hof;Datum en tijd 22-10-31 16:00;Bericht: blablablablablablablabla;Station: Haarlem;
+Naam gebruiker: benthe;Datum en tijd 22-10-31 16:00;Bericht: blablablablabab;Station: Amsterdam;
