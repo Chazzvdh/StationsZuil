@@ -3,6 +3,17 @@ from tkinter import *
 from PIL import Image, ImageTk
 from datetime import *
 import random
+goedgekeurd_clicked = False
+afgekeurd_clicked = False
+def goedgekeurd():
+    goedgekeurd_clicked = 'y'
+    print("Goedgekeurd")
+    return
+
+def afgekeurd():
+    afgekeurd_clicked = True
+    print("Afgekeurd")
+    return
 
 window = Tk()
 window.title("Module2")
@@ -14,13 +25,8 @@ station = random.choice(stations)
 time = datetime.now().strftime('%H:%M')
 
 file1 = open("../Module 1/zuil_berichten.txt", "r+")
-file1_data = file1.read()
-file1_data = file1_data.split(';')
-text = ''
-
-for i in range(len(file1_data)):
-    text += file1_data[i]
-    text += '\n'
+lines = file1.readlines()
+lst = []
 
 window.minsize(1000, 600)
 window.maxsize(1000, 600)
@@ -44,11 +50,11 @@ label4 = Label(master=window, text="")
 label4.configure(background="navy", width=1000, height=3)
 label4.pack(side=BOTTOM, anchor='w')
 
-button1 = Button(master=window, text='Goedgekeurd')
+button1 = Button(master=window, text='Goedgekeurd', command=goedgekeurd)
 button1.configure(cursor="hand2", background='white', foreground='navy', width=15, height=2, font=("Helvetica", 15))
 button1.place(x=20, y=90)
 
-button2 = Button(master=window, text='Afgekeurd')
+button2 = Button(master=window, text='Afgekeurd', command=afgekeurd)
 button2.configure(cursor="hand2", background='white', foreground='navy', width=15, height=2, font=("Helvetica", 15))
 button2.place(x=20, y=170)
 
@@ -56,6 +62,16 @@ txt_edit = Text(window, height=20, width=69)
 txt_edit.pack(padx=20, pady=0, anchor='e')
 txt_edit.configure(foreground='navy', font=("Helvetica",15))
 txt_edit.configure(state='normal')
+
+text = ''
+
+for i in lines:
+    info = i.strip("\n").split(";")
+    if goedgekeurd_clicked == 'y':
+        text += (f"{info[0]}\n{info[1]}\n{info[2]}\n{info[3]}\n\n")
+
+    txt_edit.insert(END, text)
+
 txt_edit.insert(END, text)
 txt_edit.configure(state='disabled')
 
