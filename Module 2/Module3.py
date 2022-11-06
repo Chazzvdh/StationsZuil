@@ -1,8 +1,41 @@
-import random
 from tkinter import *
 from tkinter.font import Font
 import requests
 from PIL import Image, ImageTk
+import psycopg2
+
+def import_data_SQL(row_id):
+    try:
+        connection = psycopg2.connect(
+            host = "localhost",
+            database = "projectA",
+            user = "postgres",
+            password = "Wrdc21291",
+            port = "25569")
+
+        cursor = connection.cursor()
+        postgreSQL_select_Query = "select * from bericht"
+        cursor.execute(postgreSQL_select_Query)
+        berichten_data = cursor.fetchall()
+        berichten = berichten_data[row_id]
+
+        if berichten[6] == 1:
+            station = "Amsterdam"
+        elif berichten[6] == 2:
+            station = "Haarlem"
+        else:
+            station = "Breda"
+
+        text1 = f"Naam: {berichten[4]}\nDatum: {berichten[1]}\nTijd: {berichten[2]}\nStation: {station}\nBericht: {berichten[0]}"
+
+    except (Exception, psycopg2.Error) as error:
+        print(f"Error ({error}) tijdens het vragen naar data van PostgreSQL")
+
+    finally:
+        if connection:
+            cursor.close()
+            connection.close()
+    return text1
 
 def clicked():
     l1.configure(text=f"Station: {option.get()}\nTemperature: {getData(option.get())[4]}°C\nDescription: {getData(option.get())[3]}")
@@ -72,27 +105,32 @@ l1.configure(bg="gray20", fg="gray80", font=my_font1, anchor="center")
 l1.grid(row=1, column=0, rowspan=1, columnspan=1, ipadx=10, ipady=10, sticky=W)
 
 text1 = Text(window)
-text1.configure(font=my_font2, fg="white", bg="grey18", height=6)
+text1.configure(font=my_font2, fg="white", bg="grey18", height=5)
+text1.insert(INSERT, import_data_SQL(-1))
 text1.configure(state="disabled")
 text1.grid(row=3, column=0, rowspan=1, columnspan=3, ipady=0, ipadx=20, padx=10, pady=5)
 
 text2 = Text(window)
-text2.configure(font=my_font2, fg="white", bg="grey18", height=6)
+text2.configure(font=my_font2, fg="white", bg="grey18", height=5)
+text2.insert(INSERT, import_data_SQL(-2))
 text2.configure(state="disabled")
 text2.grid(row=4, column=0, rowspan=1, columnspan=3, ipady=0, ipadx=20, padx=10, pady=5)
 
 text3 = Text(window)
-text3.configure(font=my_font2, fg="white", bg="grey18", height=6)
+text3.configure(font=my_font2, fg="white", bg="grey18", height=5)
+text3.insert(INSERT, import_data_SQL(-3))
 text3.configure(state="disabled")
 text3.grid(row=5, column=0, rowspan=1, columnspan=3, ipady=0, ipadx=20, padx=10, pady=5)
 
 text4 = Text(window)
-text4.configure(font=my_font2, fg="white", bg="grey18", height=6)
+text4.configure(font=my_font2, fg="white", bg="grey18", height=5)
+text4.insert(INSERT, import_data_SQL(-4))
 text4.configure(state="disabled")
 text4.grid(row=6, column=0, rowspan=1, columnspan=3, ipady=0, ipadx=20, padx=10, pady=5)
 
 text5 = Text(window)
-text5.configure(font=my_font2, fg="white", bg="grey18", height=6)
+text5.configure(font=my_font2, fg="white", bg="grey18", height=5)
+text5.insert(INSERT, import_data_SQL(-5))
 text5.configure(state="disabled")
 text5.grid(row=7, column=0, rowspan=1, columnspan=3, ipady=0, ipadx=20, padx=10, pady=5)
 
