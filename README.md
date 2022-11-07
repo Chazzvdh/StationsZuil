@@ -13,7 +13,7 @@ Sla de onderstaande gegevens op in een gestructureerd tekstbestand:
 * de naam van de reiziger – als de reiziger geen naam invult, gebruik dan als naam ‘anoniem’;
 * het station – deze locatie van de zuil mag in de module zelf worden vastgelegd op basis van een random choice van drie stations. 
   De computer (jouw python computer programma) kiest dan één station uit deze lijstlijst downloaden en dat station wordt dan gekoppeld aan het bericht.
-  <img width="789" alt="image" src="https://user-images.githubusercontent.com/114153884/200292669-826b4b46-d1cc-4463-847f-88f16b6cf786.png">
+<img width="789" alt="image" src="https://user-images.githubusercontent.com/114153884/200292669-826b4b46-d1cc-4463-847f-88f16b6cf786.png">
 
 -----Module 2: Moderatie-----
 
