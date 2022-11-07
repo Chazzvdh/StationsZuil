@@ -22,5 +22,7 @@ def module1():
             file1.write(f"{datetime.now().strftime('%d/%m/%Y-%H:%M:%S')};{station};{naam};{bericht}\n")
             file1.close()
             break
+    print(f"Hallo {naam}!\nUw bericht:\n({bericht})\nzal worden nagekeken door een van onze moderators!")
+    print("------------------")
 
 module1()

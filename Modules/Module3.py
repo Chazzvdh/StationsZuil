@@ -40,7 +40,7 @@ def import_data_bericht(row_id):
             port = "25569")
 
         cursor = connection.cursor()
-        postgreSQL_select_Query1 = "select * from bericht"
+        postgreSQL_select_Query1 = "select * from bericht where goedgekeurd = true"
         cursor.execute(postgreSQL_select_Query1)
         berichten_data = cursor.fetchall()
         berichten = berichten_data[row_id]
