@@ -13,6 +13,7 @@ Sla de onderstaande gegevens op in een gestructureerd tekstbestand:
 * de naam van de reiziger – als de reiziger geen naam invult, gebruik dan als naam ‘anoniem’;
 * het station – deze locatie van de zuil mag in de module zelf worden vastgelegd op basis van een random choice van drie stations. 
   De computer (jouw python computer programma) kiest dan één station uit deze lijstlijst downloaden en dat station wordt dan gekoppeld aan het bericht.
+  <img width="789" alt="image" src="https://user-images.githubusercontent.com/114153884/200292669-826b4b46-d1cc-4463-847f-88f16b6cf786.png">
 
 -----Module 2: Moderatie-----
 
@@ -30,6 +31,7 @@ Daarnaast wordt de volgende data toegevoegd:
 * De datum en tijd van beoordeling;
 * De naam van moderator die het bericht heeft beoordeeld;
 * Het email-adres van de moderator.
+<img width="509" alt="image" src="https://user-images.githubusercontent.com/114153884/200293139-4ef35698-51f9-4ca5-8305-26900142b9b8.png">
 
 -----Module 3: Stationshalscherm-----
 
@@ -52,3 +54,4 @@ Op dit scherm worden de geplaatste berichten uit heel Nederland getoond:
   Het gaat hierbij om het station waar het stationshalscherm hangt. 
   Voor het ophalen van de weersvoorspelling maak je gebruik van de OpenWeatherMap API
   (https://openweathermap.org/Koppelingen naar een externe site.).
+<img width="872" alt="image" src="https://user-images.githubusercontent.com/114153884/200293280-103926e9-b498-4f37-a1e3-6c683aade0f4.png">
