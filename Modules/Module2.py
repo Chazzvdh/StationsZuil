@@ -17,6 +17,9 @@ def moderatie():
         email = input("Wat is uw email adres: ")
         naam = input("Wat is uw naam: ")
 
+        checktime = datetime.now().strftime('%H:%M:%S')
+        checkdate = datetime.now().strftime('%d/%m/%Y')
+
         cursor.execute("SELECT naam, email FROM moderator WHERE email = %s", [email])
         info = cursor.fetchone()
 
@@ -63,7 +66,7 @@ def moderatie():
 
         cursor.execute("SELECT stationid FROM station WHERE locatie = %s", [info[1]])
         stationId = cursor.fetchone()[0]
-        cursor.execute("INSERT into bericht(bericht, datum, tijd, goedgekeurd, moderatorid, stationid, reiziger) VALUES(%s, %s, %s, %s, %s, %s, %s)", [info[3], info[0].split("-")[0], info[0].split("-")[1], goedkeuring, moderatorId, stationId, info[2]])
+        cursor.execute("INSERT into bericht(bericht, datum, tijd, goedgekeurd, moderatorid, stationid, reiziger, checktime, checkdate) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)", [info[3], info[0].split("-")[0], info[0].split("-")[1], goedkeuring, moderatorId, stationId, info[2], checktime, checkdate])
         connection.commit()
 
     print("------------------")
