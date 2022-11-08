@@ -59,15 +59,15 @@ def moderatie():
         else:
             goedkeuring = False
 
-    with open("zuil_berichten.txt", "w") as file:
-        for a in lines:
-            if a not in lst:
-                file.write(a)
+        with open("zuil_berichten.txt", "w") as file:
+            for a in lines:
+                if a not in lst:
+                    file.write(a)
 
-        cursor.execute("SELECT stationid FROM station WHERE locatie = %s", [info[1]])
-        stationId = cursor.fetchone()[0]
-        cursor.execute("INSERT into bericht(bericht, datum, tijd, goedgekeurd, moderatorid, stationid, reiziger, checktime, checkdate) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)", [info[3], info[0].split("-")[0], info[0].split("-")[1], goedkeuring, moderatorId, stationId, info[2], checktime, checkdate])
-        connection.commit()
+            cursor.execute("SELECT stationid FROM station WHERE locatie = %s", [info[1]])
+            stationId = cursor.fetchone()[0]
+            cursor.execute("INSERT into bericht(bericht, datum, tijd, goedgekeurd, moderatorid, stationid, reiziger, checktime, checkdate) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)", [info[3], info[0].split("-")[0], info[0].split("-")[1], goedkeuring, moderatorId, stationId, info[2], checktime, checkdate])
+            connection.commit()
 
     print("------------------")
 
